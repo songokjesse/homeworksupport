@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <img src="{{asset('logo.PNG')}}" width="200" >
+{{--                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />--}}
                     </a>
                 </div>
 
@@ -45,10 +46,10 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                            <x-dropdown-link :href="route('logout')">
+                            <x-dropdown-link :href="route('login')">
                                 {{ __('Log In') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('logout')">
+                            <x-dropdown-link :href="route('register')">
                                 {{ __('Register') }}
                             </x-dropdown-link>
 
