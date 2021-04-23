@@ -34,3 +34,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/storage/{extra}', function ($extra) {
+    return redirect('/public/storage/$extra');
+}
+)->where('extra', '.*');
