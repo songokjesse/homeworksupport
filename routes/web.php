@@ -40,3 +40,12 @@ Route::get('/storage/{extra}', function ($extra) {
     return redirect('/public/storage/$extra');
 }
 )->where('extra', '.*');
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/users', function () {
+            // Matches The "/admin/users" URL
+            return response()->json( "Hello World");
+        });
+    });
+});
