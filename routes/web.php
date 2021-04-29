@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +48,7 @@ Route::middleware(['auth'])->group(function () {
             // Matches The "/admin/users" URL
             return response()->json( "Hello World");
         });
+        Route::resource('categories',CategoryController::class);
+
     });
 });
