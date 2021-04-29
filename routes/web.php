@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\CategoryController;
+use \App\Http\Controllers\Admin\HomeworkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
             return response()->json( "Hello World");
         });
         Route::resource('categories',CategoryController::class);
+        Route::resource('homework',HomeworkController::class);
 
     });
 });
