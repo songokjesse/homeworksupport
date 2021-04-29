@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class HomeworkFile extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'filePath',
+        'homework_id'
+    ];
 }
