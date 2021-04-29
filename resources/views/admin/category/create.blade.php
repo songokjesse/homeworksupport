@@ -9,12 +9,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="/admin/categories" >
+                    <a href="/admin/categories" class="mt-4">
                         <x-button class="ml-3  justify-end">
                             Category List
                         </x-button>
                     </a>
-                    <br>
+                    <br/>
+                    <br/>
+                        <hr/>
+
+
                     <div class=" flex flex-col sm:justify-center pt-6 sm:pt-0">
                     <!-- Session Status -->
                     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -22,12 +26,12 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                    <form method="POST" action="{{ route('categories.create') }}">
+                    <form method="POST" action="{{ route('categories.store') }}">
                     @csrf
 
                     <!-- Email Address -->
                         <div class="mt-4">
-                            <x-label for="email" :value="__('Category Name')" />
+                            <x-label for="email" :value="__('Category Name')" class="sm:font-bold"/>
 
                             <x-input id="email" class="block mt-1 w-full" type="text" name="categoryName" :value="old('categoryName')" required autofocus />
                         </div>
@@ -39,6 +43,7 @@
                         </div>
                     </form>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
