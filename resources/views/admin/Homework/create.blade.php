@@ -11,9 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
                         <div>
-                            <a href="/admin/categories/create" >
+                            <a href="/admin/homework" >
                                 <x-button class="ml-3  justify-end">
-                                    Create HomeWork
+                                    HomeWork List
                                 </x-button>
                             </a>
                         </div>
