@@ -36,8 +36,8 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$category->id}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$category->categoryName}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
-                                    <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    <a href="{{route('categories.edit', $category->id)}}"><button class="text-indigo-600 hover:text-indigo-900">Edit</button></a>
+{{--                                    <a href="" ><button class="text-red-600 hover:text-red-900">Delete</button></a>--}}
                                 </td>
                             </tr>
                              @endforeach

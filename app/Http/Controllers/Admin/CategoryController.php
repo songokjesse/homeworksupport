@@ -55,7 +55,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.show', compact(
+            'category'
+        ));
     }
 
     /**
@@ -66,7 +69,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.edit', compact(
+            'category'
+        ));
     }
 
     /**
@@ -78,7 +84,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'categoryName' => 'required|unique:App\Models\Category',
+        ]);
+
+        $category = Category::find($id);
+
+        $category->categoryName = $request->input('categoryName');
+
+        $category->save();
+
+        return redirect('admin/categories');
+
     }
 
     /**
