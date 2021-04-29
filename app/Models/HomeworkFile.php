@@ -12,4 +12,9 @@ class HomeworkFile extends Model
         'filePath',
         'homework_id'
     ];
+
+    public function homework()
+    {
+        return $this->belongsTo(Homework::class);
+    }
 }

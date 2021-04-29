@@ -18,4 +18,9 @@ class Homework extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function homework_files()
+    {
+        return $this->hasMany(HomeworkFile::class);
+    }
 }
