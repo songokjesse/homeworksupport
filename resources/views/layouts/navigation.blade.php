@@ -22,13 +22,13 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('aboutUs')" :active="request()->routeIs('aboutUs')">
-                        {{ __('AboutUs') }}
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
+                        {{ __('Category') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
-                        {{ __('Contacts') }}
+                        {{ __('Homework') }}
                     </x-nav-link>
                 </div>
             </div>
