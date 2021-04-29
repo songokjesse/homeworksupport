@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Homework;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeworkController extends Controller
 {
@@ -15,7 +17,7 @@ class HomeworkController extends Controller
      */
     public function index()
     {
-        $homework = Homework::paginate(1);
+        $homework = Homework::paginate(5);
         return view('admin.Homework.index', compact('homework'));
     }
 
@@ -26,7 +28,8 @@ class HomeworkController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::all();
+        return view('admin.Homework.create', compact('category'));
     }
 
     /**
@@ -37,7 +40,19 @@ class HomeworkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $homework = new Homework;
+        $homework->category_id = $request->input('category_id');
+        $homework->name = $request->input('name');
+        $homework->description = $request->input('description');
+        $homework->save();
+        $homework_id = $homework->id;
+        return redirect()->route('HomeworkUpload', ['id' => $homework_id]);
     }
 
     /**

@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
                         <div>
-                            <a href="/admin/categories/create" >
+                            <a href="/admin/homework/create" >
                                 <x-button class="ml-3  justify-end">
                                     Create HomeWork
                                 </x-button>
@@ -39,14 +39,16 @@
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->id}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->category->categoryName}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->name}}</td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{{$work->description}}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">{{Str::limit($work->description, 50)}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <x-button class="ml-2 justify-end">
+                                                        <a href="{{route('HomeworkUpload', $work->id)}}">
+                                                            <x-button class="ml-2 justify-end">
                                                             Files
-                                                        </x-button>
+                                                            </x-button>
+                                                        </a>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <a href="{{route('categories.edit', $work->id)}}"><button class="text-indigo-600 hover:text-indigo-900">Edit</button></a>
+                                                        <a href="#"><button class="text-indigo-600 hover:text-indigo-900">Edit</button></a>
                                                         <a href="#" ><button class="text-red-600 hover:text-red-900">Delete</button></a>
                                                     </td>
                                                 </tr>

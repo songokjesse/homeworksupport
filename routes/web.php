@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\CategoryController;
 use \App\Http\Controllers\Admin\HomeworkController;
+use App\Http\Controllers\Admin\HomeworkUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,12 +46,11 @@ Route::get('/storage/{extra}', function ($extra) {
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
-        Route::get('/users', function () {
-            // Matches The "/admin/users" URL
-            return response()->json( "Hello World");
-        });
         Route::resource('categories',CategoryController::class);
         Route::resource('homework',HomeworkController::class);
 
+//        Homework Upload
+        Route::get('/homework-files/{id}', [HomeworkUploadController::class, 'index'])->name('HomeworkUpload');
+        Route::post('/homework-files', [HomeworkUploadController::class, 'store'])->name('saveHomeworkFiles');
     });
 });
