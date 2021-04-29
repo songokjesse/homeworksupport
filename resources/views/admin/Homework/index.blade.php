@@ -13,7 +13,7 @@
                         <div>
                             <a href="/admin/homework/create" >
                                 <x-button class="ml-3  justify-end">
-                                    Create HomeWork
+                                    Add HomeWork
                                 </x-button>
                             </a>
                         </div>
