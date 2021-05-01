@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Homework;
 use App\Models\HomeworkFile;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class HomeworkUploadController extends Controller
@@ -17,20 +18,25 @@ class HomeworkUploadController extends Controller
         }
         $homework_id = $id;
         $homework = Homework::find($homework_id)->homework_files;
-        return view('admin.Homework.files', compact('homework'));
+        return view('admin.Homework.files', compact('homework','homework_id'));
     }
     public function store(Request $request)
     {
         $request->validate([
             'homework_id' => 'required',
-            'filePath' => 'required',
+            'file' => 'required',
         ]);
-        $homework_id = $request->input('homework_id');
-        $homeworkUpload = new HomeworkFile;
-        $homeworkUpload->homework_id = $request->input('homework_id');
-        $homeworkUpload->filePath = $request->input('filePath');
-        $homeworkUpload->save();
+        $file = $request->file('file');
 
+                $name = time().rand(1,100).'.'.$file->extension();
+                $file->storeAs('files', $name);
+
+                $homeworkUpload = new HomeworkFile;
+                $homeworkUpload->homework_id = $request->input('homework_id');
+                $homeworkUpload->filePath = $name;
+                $homeworkUpload->save();
+
+        $homework_id = $request->input('homework_id');
         return redirect()->route('HomeworkUpload', ['id' => $homework_id]);
     }
 }

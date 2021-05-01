@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-dropzone>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Homework') }}
@@ -11,9 +11,14 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
                         <div>
+                            <a href="/admin/homework" >
+                                <x-button class="ml-3  justify-end">
+                                    HomeWork List
+                                </x-button>
+                            </a>
                             <a href="/admin/homework/create" >
                                 <x-button class="ml-3  justify-end">
-                                    HomeWork
+                                  Add  HomeWork
                                 </x-button>
                             </a>
                         </div>
@@ -31,17 +36,11 @@
 
                                             <br />
                                     {{--  Upload Files--}}
-                                        <form method="" action="{{route('saveHomeworkFiles')}}" accept-charset="utf-8" enctype="multipart/form-data">
-                                            <div class="mt-4">
-                                                <x-label for="email" :value="__('Files')" class="sm:font-bold"/>
-
-                                                <x-input id="email" class="block mt-1 w-full" type="file" name="files[]" :value="old('name')" required  />
-                                            </div>
-
-                                            <div class="flex items-center justify-end mt-4">
-                                                <x-button class="ml-3">
-                                                    {{ __('Save') }}
-                                                </x-button>
+                                        <form class="dropzone" id="dropzone" method="" action="{{route('saveHomeworkFiles')}}" accept-charset="utf-8" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="homework_id" value="{{$homework_id}}">
+                                            <div class="dz-message">
+                                                Drag and Drop Single/Multiple Files Here<br>
                                             </div>
                                         </form>
                                         </div>
@@ -50,39 +49,7 @@
                                         <br/>
 
                                     {{-- Display Uploaded Files--}}
-                                            <div class="flex flex-col">
-                                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                                            <table class="table-auto min-w-full divide-y divide-gray-200">
-                                                                <thead class="bg-gray-50">
-                                                                <tr>
-                                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
-                                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Files</th>
-                                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                                @foreach($homework as $work)
-                                                                    <tr>
-                                                                        <td class="px-6 py-4 whitespace-nowrap">{{$work->id}}</td>
-                                                                        <td class="px-6 py-4 whitespace-nowrap">
-                                                                            {{$work->filePath}}
-                                                                        </td>
-                                                                        <td class="px-6 py-4 whitespace-nowrap">
-                                                                            <a href="{{route('categories.edit', $work->id)}}"><button class="text-indigo-600 hover:text-indigo-900">Edit</button></a>
-                                                                            <a href="#" ><button class="text-red-600 hover:text-red-900">Delete</button></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endforeach
-                                                                </tbody>
-                                                            </table>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <livewire:file :homework="$homework"/>
                                     </div>
                                     </div>
                                 </div>
@@ -94,4 +61,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-dropzone>
+
