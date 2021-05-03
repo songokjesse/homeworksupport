@@ -57,5 +57,6 @@ Route::middleware(['auth'])->group(function () {
 //        Homework Upload
         Route::get('/homework-files/{id}', [HomeworkUploadController::class, 'index'])->name('HomeworkUpload');
         Route::post('/homework-files', [HomeworkUploadController::class, 'store'])->name('saveHomeworkFiles');
+        Route::delete('/homework-files/{id}', [HomeworkUploadController::class, 'destroy'])->name('deleteHomeworkFiles');
     });
 });

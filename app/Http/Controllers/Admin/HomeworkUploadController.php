@@ -7,6 +7,7 @@ use App\Models\Homework;
 use App\Models\HomeworkFile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeworkUploadController extends Controller
 {
@@ -37,6 +38,13 @@ class HomeworkUploadController extends Controller
                 $homeworkUpload->save();
 
         $homework_id = $request->input('homework_id');
+        return redirect()->route('HomeworkUpload', ['id' => $homework_id]);
+    }
+    public function destroy($id){
+        $homework = HomeworkFile::find($id);
+        $homework_id = $homework->homework->id;
+        $homework->delete();
+        Storage::delete('files/'.$homework->filePath);
         return redirect()->route('HomeworkUpload', ['id' => $homework_id]);
     }
 }

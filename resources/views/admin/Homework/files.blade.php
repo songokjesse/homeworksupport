@@ -69,8 +69,11 @@
                                                                         {{$work->filePath}}
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                        <a href="#"><button class="text-indigo-600 hover:text-indigo-900">Edit</button></a>
-                                                                        <a href="#" ><button class="text-red-600 hover:text-red-900">Delete</button></a>
+                                                                        <form action="{{ route('deleteHomeworkFiles',$work->id) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="text-red-600 hover:text-red-900">Delete</button>
+                                                                        </form>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
