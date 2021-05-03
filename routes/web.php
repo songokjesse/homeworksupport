@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\CategoryController;
 use \App\Http\Controllers\Admin\HomeworkController;
 use App\Http\Controllers\Admin\HomeworkUploadController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
