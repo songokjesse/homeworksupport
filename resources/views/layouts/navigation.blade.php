@@ -21,6 +21,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @hasrole('Admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
                         {{ __('Category') }}
@@ -36,6 +37,7 @@
                         {{ __('Users') }}
                     </x-nav-link>
                 </div>
+                @endhasrole
             </div>
 
             <!-- Settings Dropdown -->
