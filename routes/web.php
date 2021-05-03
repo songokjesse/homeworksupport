@@ -49,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('categories',CategoryController::class);
         Route::resource('homework',HomeworkController::class);
 
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', UserController::class);
+
 //        Homework Upload
         Route::get('/homework-files/{id}', [HomeworkUploadController::class, 'index'])->name('HomeworkUpload');
         Route::post('/homework-files', [HomeworkUploadController::class, 'store'])->name('saveHomeworkFiles');

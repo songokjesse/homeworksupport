@@ -39,7 +39,7 @@
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->id}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->category->categoryName}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->name}}</td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{{Str::limit($work->description, 50)}}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">{{Str::limit($work->description, 30)}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <a href="{{route('HomeworkUpload', $work->id)}}">
                                                             <x-button class="ml-2 justify-end">
