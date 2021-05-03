@@ -30,8 +30,9 @@
                                             <!-- Validation Errors -->
                                             <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                                            <form method="PATCH" action="{{ route('roles.update', $role->id) }}">
+                                            <form method="POST" action="{{ route('roles.update', $role->id) }}">
                                                 @csrf
+                                                @method('PUT')
                                                 {{-- Role Name--}}
                                                 <div class="mt-4">
                                                     <x-label for="email" :value="__('Role Name')" class="sm:font-bold"/>
