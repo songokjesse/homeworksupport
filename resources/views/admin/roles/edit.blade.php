@@ -43,8 +43,15 @@
                                                 <div class="mt-4">
                                                     <x-label for="email" :value="__('Permissions')" class="sm:font-bold"/>
                                                     @foreach($permission as $value)
-                                                        <label class="flex items-center">{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'rounded px-3 py-2 ')) }}
+                                                        <label class="flex items-center">
+                                                            <input type="checkbox" name="permission[]" value="{{$value->id}}" class="rounded px-3 py-2"
+                                                                   @if(in_array($value->id, $rolePermissions) )
+                                                                       checked
+                                                                       @endif
+                                                            />
+{{--                                                            {{  Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'rounded px-3 py-2 '))  }}--}}
                                                            &nbsp; {{ $value->name }}</label>
+
                                                     @endforeach
 {{--                                                    <selectname name="permission[]" autofocus class="w-full border bg-white rounded px-3 py-2 outline-none" multiple="true">--}}
 {{--                                                        <option class="p-1" selected disabled>Select Permissions</option>--}}
