@@ -29,11 +29,13 @@ class HomeworkUploadController extends Controller
         ]);
         $file = $request->file('file');
 
-                $name = time().rand(1,100).'.'.$file->extension();
+        $name = time().rand(1,100).'.'.$file->extension();
                 $file->storeAs('files', $name);
 
                 $homeworkUpload = new HomeworkFile;
                 $homeworkUpload->homework_id = $request->input('homework_id');
+                $homeworkUpload->OriginalName = $request->file('file')->getClientOriginalName();
+                $homeworkUpload->fileSize = $request->file('file')->getSize();
                 $homeworkUpload->filePath = $name;
                 $homeworkUpload->save();
 
