@@ -74,7 +74,7 @@
                                                                         {{$work->OriginalName}}
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                        {{$work->fileSize}}
+                                                                        {{round($work->fileSize/ pow(1024,2), 2)}} MB
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                                         <form action="{{ route('deleteHomeworkFiles',$work->id) }}" method="POST">
