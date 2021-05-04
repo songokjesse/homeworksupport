@@ -10,7 +10,9 @@ class HomeworkFile extends Model
     use HasFactory;
     protected $fillable =[
         'filePath',
-        'homework_id'
+        'homework_id',
+        'fileSize',
+        'OriginalName'
     ];
 
     public function homework()
