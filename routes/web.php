@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\CategoryController;
 use \App\Http\Controllers\Admin\HomeworkController;
@@ -18,8 +19,14 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Request $request) {
+    if($request->has('homework_search')){
+        $homework = \App\Models\Homework::search($request->homework_search)
+            ->paginate(7);
+    }else{
+        $homework = \App\Models\Homework::paginate(7);
+    }
+    return view('welcome', compact('homework'));
 })->name('welcome');
 
 Route::get('/home', function () {
