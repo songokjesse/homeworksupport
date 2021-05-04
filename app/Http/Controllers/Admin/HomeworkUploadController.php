@@ -36,6 +36,7 @@ class HomeworkUploadController extends Controller
                 $homeworkUpload->homework_id = $request->input('homework_id');
                 $homeworkUpload->OriginalName = $request->file('file')->getClientOriginalName();
                 $homeworkUpload->fileSize = $request->file('file')->getSize();
+                $homeworkUpload->fileExtension = $request->file('file')->extension();
                 $homeworkUpload->filePath = $name;
                 $homeworkUpload->save();
 

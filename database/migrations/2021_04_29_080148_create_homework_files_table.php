@@ -17,6 +17,7 @@ class CreateHomeworkFilesTable extends Migration
             $table->id();
             $table->string('filePath');
             $table->string('OriginalName');
+            $table->string('fileExtension');
             $table->integer('fileSize');
             $table->bigInteger('homework_id')->unsigned();
             $table->foreign('homework_id')->references('id')->on('homework');
