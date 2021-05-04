@@ -4,15 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Homework extends Model
 {
     use HasFactory;
+    use Searchable;
+
     protected $fillable =[
         'name',
         'description',
         'user_id'
     ];
+
+    /**
+     * Get the index name for the model.
+     */
+    public function searchableAs()
+    {
+        return 'homework_index';
+    }
 
     public function category()
     {
