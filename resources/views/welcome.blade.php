@@ -54,6 +54,7 @@
                                     <div class="h-48 sm:h-auto sm:w-48 md:w-64 flex-none bg-cover bg-center rounded rounded-t sm:rounded sm:rounded-l text-center overflow-hidden">
 
 {{--                                <div class="bg-gray-300 w-26 h-12 rounded">--}}
+                                 <img src="{{$item->category->url}}" />
                                 {{$item->name}}
                                         <br/>
                                         {{Str::limit($item->description, 200)}}
