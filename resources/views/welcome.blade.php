@@ -23,7 +23,9 @@
 <!-- Page Heading -->
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-{{--            <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--            <img src="https://res.cloudinary.com/homework-support-com/image/upload/v1620641856/files/whatsapp_nbkmsj.png"/>--}}
+
+            {{--            <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
 {{--                {{ __('Home') }}--}}
 {{--            </h2>--}}
             <form method="GET" action="{{route('welcome')}}" class="inline">
@@ -56,17 +58,16 @@
                             <div class="flex space-x-2 text-gray-400 text-sm my-3">
                                 <p>{!! html_entity_decode( Str::limit($item->description, 100)) !!}</p>
                             </div>
-                            <div class="border-t-2"></div>
 
-                            <div class="flex justify-between">
-                                <div class="my-2">
-                                    <div class="flex space-x-2">
-                                        <x-button class="ml-3  justify-end">
-                                        Show Question
-                                        </x-button>
+
+                            <div class="absolute inset-x-0 bottom-0 h-16 ">
+                                    <div class="my-2">
+                                        <div class="flex space-x-2">
+                                            <x-button class="ml-3  justify-end">
+                                            Show Question
+                                            </x-button>
+                                        </div>
                                     </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
