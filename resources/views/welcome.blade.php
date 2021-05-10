@@ -44,7 +44,7 @@
     <main>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div id="main" class="grid grid-cols-4 gap-1 justify-evenly">
+                <div id="main" class="grid grid-cols-3 gap-1 justify-evenly">
                     @foreach ($homework as $item)
                     <div class="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                         <div class=" text-white flex items-center absolute rounded-full py-5 px-5 shadow-xl bg-gray-200 left-4 -top-6">
