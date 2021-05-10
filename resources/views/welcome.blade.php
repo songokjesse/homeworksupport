@@ -59,7 +59,7 @@
                                 <p>{{$item->name}}</p>
                             </div>
                             <div class="flex space-x-2 text-gray-400 text-sm my-3">
-                                <p>{!! html_entity_decode( Str::limit($item->description, 200)) !!}</p>
+                                <p>{!! html_entity_decode( Str::limit($item->description, 100)) !!}</p>
                             </div>
                             <div class="border-t-2"></div>
 
