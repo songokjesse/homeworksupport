@@ -59,7 +59,7 @@
                                 <p>{{$item->name}}</p>
                             </div>
                             <div class="flex space-x-2 text-gray-400 text-sm my-3">
-                                <p>{{Str::limit($item->description, 200)}}</p>
+                                <p>{!! html_entity_decode( Str::limit($item->description, 200)) !!}</p>
                             </div>
                             <div class="border-t-2"></div>
 
@@ -67,17 +67,11 @@
                                 <div class="my-2">
                                     <div class="flex space-x-2">
                                         <x-button class="ml-3  justify-end">
-                                        Question
+                                        Show Question
                                         </x-button>
                                     </div>
                                 </div>
-                                <div class="my-2">
-                                    <div class="text-base text-gray-400 font-semibold">
-                                        <x-button class="ml-3  justify-end">
-                                         Answer
-                                        </x-button>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
