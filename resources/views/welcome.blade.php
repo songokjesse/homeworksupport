@@ -86,6 +86,9 @@
             </div>
         </div>
     </main>
+    <hr/>
+    <br/>
+    {{ $homework->links() }}
 </div>
 </body>
 </html>

@@ -24,7 +24,7 @@ Route::get('/', function (Request $request) {
         $homework = \App\Models\Homework::search($request->homework_search)
             ->paginate(7);
     }else{
-        $homework = \App\Models\Homework::paginate(7);
+        $homework = \App\Models\Homework::paginate(12);
     }
     return view('welcome', compact('homework'));
 })->name('welcome');
