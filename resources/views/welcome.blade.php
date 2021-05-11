@@ -51,6 +51,7 @@
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -66,8 +67,10 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
 {{--                                    <a href="{{route('homework.show', $work->id)}}">--}}
                                     <a href="#">
-                                    {!! html_entity_decode( Str::limit($work->description, 200)) !!}</td>
+                                    {!! html_entity_decode( Str::limit($work->description, 200)) !!}
+                                </td>
                                 </a>
+                                <td></td>
                             </tr>
 
                         @endforeach
@@ -78,7 +81,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </main>removed cards from homepage
     <hr/>
     <br/>
     {{ $homework->links() }}
