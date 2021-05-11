@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-    </main>removed cards from homepage
+    </main>
     <hr/>
     <br/>
     {{ $homework->links() }}
