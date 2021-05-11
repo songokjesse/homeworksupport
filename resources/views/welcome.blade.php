@@ -44,30 +44,37 @@
     <main>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div id="main" class="grid grid-cols-4 gap-1 justify-evenly">
-                    @foreach ($homework as $item)
-                    <div class="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
-                        <div class=" text-white flex items-center absolute rounded-full py-5 px-5 shadow-xl bg-gray-200 left-4 -top-6">
-                            <img src="{{$item->category->url}}" class="h-9 w-9"/>
-                        </div>
-                        <div class="mt-8">
-                            <p class="text-xl font-semibold my-2">{{$item->name}}</p>
 
-                            <div class="flex space-x-2 text-gray-400 text-sm my-3">
-                                <p>{!! html_entity_decode( Str::limit($item->description, 100)) !!}</p>
-                            </div>
-                            <div class="absolute inset-x-0 bottom-0 h-16 ">
-                                    <div class="my-2">
-                                        <div class="flex space-x-2">
-                                            <x-button class="ml-3  justify-end">
-                                            Show Question
-                                            </x-button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="table-auto min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($homework as $work)
+
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="#">
+{{--                                    <a href="{{route('homework.show', $work->id)}}">--}}
+                                    <img src="{{$work->category->url}}" class="h-9 w-9 rounded-full"/>
+                                    </a>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+{{--                                    <a href="{{route('homework.show', $work->id)}}">--}}
+                                    <a href="#">
+                                    {!! html_entity_decode( Str::limit($work->description, 300)) !!}</td>
+                                </a>
+                            </tr>
+
+                        @endforeach
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
         </div>
