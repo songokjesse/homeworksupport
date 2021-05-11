@@ -23,11 +23,10 @@
 <!-- Page Heading -->
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-{{--            <img src="https://res.cloudinary.com/homework-support-com/image/upload/v1620641856/files/whatsapp_nbkmsj.png"/>--}}
-
-            {{--            <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
-{{--                {{ __('Home') }}--}}
-{{--            </h2>--}}
+            <img class="inline align-right"src="https://res.cloudinary.com/homework-support-com/image/upload/v1620641856/files/whatsapp_nbkmsj.png" width="30" height="30"/>
+            <div class="inline  text-left">
+                <b> +1(480) 485-8762</b>
+            </div>
             <form method="GET" action="{{route('welcome')}}" class="inline">
                 @csrf
                 <div class="flex relative w-500px h-48px group justify-center items-center z-1001 pl-8">

@@ -23,7 +23,11 @@
 <!-- Page Heading -->
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <img class="inline align-right"src="https://res.cloudinary.com/homework-support-com/image/upload/v1620641856/files/whatsapp_nbkmsj.png" width="30" height="30"/>
+            <div class="inline  text-left">
+                <b> +1(480) 485-8762</b>
+            </div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-right">
                 {{ __('AboutUs') }}
             </h2>
         </div>
