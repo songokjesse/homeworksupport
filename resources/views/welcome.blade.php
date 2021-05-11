@@ -66,7 +66,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
 {{--                                    <a href="{{route('homework.show', $work->id)}}">--}}
                                     <a href="#">
-                                    {!! html_entity_decode( Str::limit($work->description, 300)) !!}</td>
+                                    {!! html_entity_decode( Str::limit($work->description, 200)) !!}</td>
                                 </a>
                             </tr>
 
