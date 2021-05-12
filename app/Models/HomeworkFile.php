@@ -13,7 +13,8 @@ class HomeworkFile extends Model
         'homework_id',
         'fileSize',
         'OriginalName',
-        'fileExtension'
+        'fileExtension',
+        'Answer'
     ];
 
     public function homework()

@@ -1,7 +1,7 @@
 <x-dropzone>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Homework Files') }}
+            {{ __('Homework Answers') }}
         </h2>
     </x-slot>
 
@@ -16,14 +16,9 @@
                                     HomeWork List
                                 </x-button>
                             </a>
-                            <a href="/admin/homework/create" >
+                            <a href="{{route('HomeworkUpload',$homework_id)}}" >
                                 <x-button class="ml-3  justify-end">
-                                  Add  HomeWork
-                                </x-button>
-                            </a>
-                            <a href="{{route('AnswerUpload',$homework_id)}}" >
-                                <x-button class="ml-3  justify-end">
-                                    Answer Files
+                                    HomeWork Files
                                 </x-button>
                             </a>
                         </div>
@@ -40,20 +35,20 @@
                                             <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
                                             <br />
-                                    {{--  Upload Files--}}
-                                        <form class="dropzone" id="dropzone" method="" action="{{route('saveHomeworkFiles')}}" accept-charset="utf-8" enctype="multipart/form-data">
-                                            @csrf
-                                            <input type="hidden" name="homework_id" value="{{$homework_id}}">
-                                            <div class="dz-message">
-                                                Drag and Drop Single/Multiple Files Here<br>
-                                            </div>
-                                        </form>
+                                            {{--  Upload Files--}}
+                                            <form class="dropzone" id="dropzone" method="" action="{{route('saveHomeworkAnswers')}}" accept-charset="utf-8" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="homework_id" value="{{$homework_id}}">
+                                                <div class="dz-message">
+                                                    Drag and Drop Single/Multiple Answer Files Here<br>
+                                                </div>
+                                            </form>
                                         </div>
                                         <br/>
                                         <hr/>
                                         <br/>
 
-                                    {{-- Display Uploaded Files--}}
+                                        {{-- Display Uploaded Files--}}
                                         <div class="flex flex-col">
                                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -63,6 +58,7 @@
                                                             <tr>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Files</th>
+                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Answer</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Original Name</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File Size</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
@@ -70,11 +66,14 @@
                                                             </thead>
                                                             <tbody class="bg-white divide-y divide-gray-200">
                                                             @foreach($homework as $work)
-                                                                @if($work->Answer === 0)
-                                                                    <tr>
+                                                                @if($work->Answer === 1)
+                                                                <tr>
                                                                     <td class="px-6 py-4 whitespace-nowrap">{{$loop->iteration}}</td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                                         {{$work->filePath}}
+                                                                    </td>
+                                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                                        {{$work->Answer}}
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                                         {{$work->OriginalName}}
@@ -102,15 +101,15 @@
                                         </div>
 
                                     </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <br/>
                     </div>
+                    <br/>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </x-dropzone>
 
