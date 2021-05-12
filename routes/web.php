@@ -41,6 +41,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/show/{id}', function ($id) {
+    $homework = \App\Models\Homework::find($id);
+    return view('/client.showHomework', compact('homework'));
+})->name('show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
