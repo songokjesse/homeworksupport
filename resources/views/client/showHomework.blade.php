@@ -43,17 +43,29 @@
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {{$homework->category->categoryName}}
+                                <img src="{{$homework->category->url}}"  class="h-9 w-9 rounded-full" />
+
                             </th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <a href="{{route('show', $homework->id)}}">
-                                    {!! html_entity_decode($homework->description) !!}
+                                <td class="px-6 py-4 ">
+                                        <table>
+                                            <tr>
+                                                <td class="flex  justify-end">
+
+                                                    <x-button class="ml-3  justify-end">Download Instructions</x-button>
+                                                    <x-button class="ml-3  justify-end">Download Answers </x-button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    {!! html_entity_decode($homework->description) !!}
+                                                </td>
+                                            </tr>
+                                        </table>
                                 </td>
-                                </a>
                             </tr>
                         </tbody>
                     </table>

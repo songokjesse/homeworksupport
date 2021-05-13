@@ -58,7 +58,6 @@
                                                             <tr>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Files</th>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Answer</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Original Name</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File Size</th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
@@ -71,9 +70,6 @@
                                                                     <td class="px-6 py-4 whitespace-nowrap">{{$loop->iteration}}</td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                                         {{$work->filePath}}
-                                                                    </td>
-                                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                                        {{$work->Answer}}
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                                         {{$work->OriginalName}}
