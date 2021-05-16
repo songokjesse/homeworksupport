@@ -59,6 +59,13 @@ Route::get('/storage/{extra}', function ($extra) {
 }
 )->where('extra', '.*');
 
+//download Route
+Route::get('/file/{id}/download', function($id){
+    $homework_file = \App\Models\HomeworkFile::findOrFail($id);
+    $pathToFile = storage_path('app/files/' . $homework_file->filePath);
+    return response()->download($pathToFile, $homework_file->OriginalName);
+})->name('file_download');
+
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resource('categories',CategoryController::class);
