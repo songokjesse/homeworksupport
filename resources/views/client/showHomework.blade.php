@@ -54,8 +54,9 @@
                                         <table>
                                             <tr>
                                                 <td class="flex  justify-end">
-
-                                                    <x-button class="ml-3  justify-end">Download Instructions</x-button>
+                                                    @foreach($homework->homework_files as $file)
+                                                    <x-button class="ml-3  justify-end bg-blue-300">{{$file->filePath}}</x-button>
+                                                    @endforeach
                                                     <x-button class="ml-3  justify-end">Download Answers </x-button>
                                                 </td>
                                             </tr>
