@@ -19,7 +19,7 @@ class HomeworkController extends Controller
      */
     public function index()
     {
-        $homework = Homework::paginate(5);
+        $homework = Homework::paginate(20);
         return view('admin.Homework.index', compact('homework'));
     }
 
