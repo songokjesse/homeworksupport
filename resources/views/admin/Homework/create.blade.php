@@ -49,6 +49,20 @@
 
                                                     <x-input id="email" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required  />
                                                 </div>
+                                                {{-- Homework Price--}}
+                                                <div class="mt-4">
+                                                    <x-label for="email" :value="__('Homework Price')" class="sm:font-bold"/>
+                                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                          <span class="text-gray-500 sm:text-sm">
+                                                            $
+                                                          </span>
+                                                        </div>
+                                                        <input type="text" name="price" id="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00">
+                                                    </div>
+
+{{--                                                    <x-input id="email" class="block mt-1 w-full" type="number" min="0.00" name="price" :value="old('price')" required  />--}}
+                                                </div>
                                                 {{-- Homework Description--}}
                                                 <div class="mt-4">
                                                     <x-label for="email" :value="__('Homework Description')" class="sm:font-bold"/>

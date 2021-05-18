@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HomeworkUploadController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AnswerUploadController;
+use App\Http\Controllers\Answer\AnswerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,4 +85,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/homework-answers', [AnswerUploadController::class, 'store'])->name('saveHomeworkAnswers');
         Route::delete('/homework-answers/{id}', [AnswerUploadController::class, 'destroy'])->name('deleteHomeworkAnswers');
     });
+
+    //Answers
+    Route::get('/answers/{id}', [AnswerController::class, 'show'])->name('ShowAnswer');
 });

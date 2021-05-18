@@ -59,7 +59,9 @@
                                                         <x-button class="ml-3  justify-end bg-blue-300">{{$file->OriginalName}}</x-button>
                                                     </a>
                                                     @endforeach
-                                                    <x-button class="ml-3  justify-end">Download Answers </x-button>
+                                                   <a href="{{route('ShowAnswer', $homework->id)}}">
+                                                       <x-button class="ml-3  justify-end">Download Answers </x-button>
+                                                   </a>
                                                 </td>
                                             </tr>
                                             <tr>

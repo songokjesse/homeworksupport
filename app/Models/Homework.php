@@ -14,6 +14,7 @@ class Homework extends Model
     protected $fillable =[
         'name',
         'description',
+        'price',
         'user_id'
     ];
 

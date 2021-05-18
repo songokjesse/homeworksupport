@@ -43,6 +43,12 @@
                                                     <td class="px-6 py-4 whitespace-nowrap">{{Str::limit($work->name,10)}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{!! html_entity_decode( Str::limit($work->description, 30)) !!}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-gray-500 sm:text-sm">
+                                                            $
+                                                          </span>
+                                                        {{$work->price}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
                                                         <a href="{{route('HomeworkUpload', $work->id)}}">
                                                             <x-button class="ml-2 justify-end">
                                                             Files

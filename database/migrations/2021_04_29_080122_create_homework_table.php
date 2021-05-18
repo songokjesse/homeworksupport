@@ -17,6 +17,7 @@ class CreateHomeworkTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->float('price');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
