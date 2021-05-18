@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Homework;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\HomeworkFile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HomeworkController extends Controller
 {
@@ -112,6 +113,15 @@ class HomeworkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $homeworkFiles = DB::table('homework_files')->where('homework_id', $id)->get();
+
+        foreach($homeworkFiles as $file){
+            Storage::delete('files/'.$file->filePath);
+        }
+
+        $homework = Homework::find($id);
+        $homework->delete();
+
+        return redirect()->route('homework.index');
     }
 }
