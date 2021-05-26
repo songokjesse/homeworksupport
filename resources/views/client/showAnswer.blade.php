@@ -29,14 +29,16 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td></td>
+                                <td class="px-6 py-4 whitespace-nowrap " >
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="rounded px-3 py-2"> &nbsp;
+                               Answer Customization <i><small>(Check box if you require your answer to be customized)</small> </i></td>
                                 <td></td>
                             </tr>
                         <tr>
-                            <td >
+                            <td class="px-6 py-4 whitespace-nowrap " >
                                 <b>Total &nbsp; </b>
                             </td>
-                            <td >
+                            <td class="px-6 py-4 whitespace-nowrap flex justify-end">
                                 <b>
                                     <span class="text-gray-500 sm:text-sm">$ </span>
                                      {{$homework->price}}
