@@ -1,12 +1,12 @@
 @component('mail::message')
-   From: # {{ $mailData['name'] }}
+   From: Email: {{$mailData['email']}}
    <br/>
-   Email: {{$mailData['email']}}
+
    <br>
    <hr/>
    <p>{{$mailData['message']}} </p>
    <br/>
 
     Thanks,<br>
-    {{ config('app.name') }}
+   {{ $mailData['name'] }}
 @endcomponent
