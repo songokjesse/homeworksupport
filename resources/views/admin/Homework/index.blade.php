@@ -30,7 +30,7 @@
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category Name</th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework Name</th>
-                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework Description</th>
+{{--                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework Description</th>--}}
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Files</th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
@@ -42,7 +42,7 @@
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->id}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->category->categoryName}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{Str::limit($work->name,10)}}</td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{!! html_entity_decode( Str::limit($work->description, 30)) !!}</td>
+{{--                                                    <td class="px-6 py-4 whitespace-nowrap">{!! html_entity_decode( Str::limit($work->description, 30)) !!}</td>--}}
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <span class="text-gray-500 sm:text-sm">
                                                             $
