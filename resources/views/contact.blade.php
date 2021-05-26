@@ -39,7 +39,41 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        You're logged in!
+
+                        <!-- Session Status -->
+                        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                        <!-- Validation Errors -->
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+                        <form method="POST" action="{{ route('save_contact') }}">
+                        @csrf
+
+                            <!-- Email Address -->
+                            <div class="mt-4">
+                                <x-label for="email" :value="__('Name')" class="sm:font-bold"/>
+
+                                <x-input id="email" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                            </div>
+                            <!-- Email Address -->
+                            <div class="mt-4">
+                                <x-label for="email" :value="__('Email')" class="sm:font-bold"/>
+
+                                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                            </div>
+
+                            <div class="mt-4">
+                                <x-label for="email" :value="__('Message')" class="sm:font-bold"/>
+                                <textarea name="message" class="w-full border bg-white rounded px-3 py-2 ">  </textarea>
+                            </div>
+
+                            <div class="flex items-center justify-end mt-4">
+                                <x-button class="ml-3">
+                                    {{ __('Send Message') }}
+                                </x-button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

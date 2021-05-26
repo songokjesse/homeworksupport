@@ -2,13 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\Admin\CategoryController;
-use \App\Http\Controllers\Admin\HomeworkController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\HomeworkController;
 use App\Http\Controllers\Admin\HomeworkUploadController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AnswerUploadController;
 use App\Http\Controllers\Answer\AnswerController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +40,9 @@ Route::get('/aboutUs', function () {
     return view('aboutUs');
 })->name('aboutUs');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('save_contact');
+
 
 Route::get('/show/{id}', function ($id) {
     $homework = \App\Models\Homework::find($id);
