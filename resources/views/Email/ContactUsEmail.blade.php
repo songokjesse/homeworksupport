@@ -1,5 +1,6 @@
 @component('mail::message')
    From: # {{ $mailData['name'] }}
+   <br/>
    Email: {{$mailData['email']}}
    <br>
    <hr/>

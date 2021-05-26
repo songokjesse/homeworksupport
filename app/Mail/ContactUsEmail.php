@@ -29,6 +29,6 @@ class ContactUsEmail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('ContactUsEmail')->with('mailData', $this->mailData);
+        return $this->markdown('Email.ContactUsEmail')->with('mailData', $this->mailData);
     }
 }

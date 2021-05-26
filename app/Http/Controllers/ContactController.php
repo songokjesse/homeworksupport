@@ -40,7 +40,7 @@ class ContactController extends Controller
 
 
 
-        return back()->with('success', 'Thanks for contacting me, I will get back to you soon!', Response::HTTP_OK);
+        return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
 
     }
 }
