@@ -22,10 +22,11 @@ class ContactController extends Controller
             'message' => 'required'
         ]);
 
-        $email = $request->input('email');
+        $email = 'info@homework-support.com';
 
         $mailData = [
             'name' => $request->input('name'),
+            'email' => $request->input('email'),
             'message' => $request->input('message'),
         ];
 
@@ -39,7 +40,7 @@ class ContactController extends Controller
 
 
 
-        return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
+        return back()->with('success', 'Thanks for contacting me, I will get back to you soon!', Response::HTTP_OK);
 
     }
 }
