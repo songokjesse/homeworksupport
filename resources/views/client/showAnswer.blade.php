@@ -38,7 +38,7 @@
                             <td class="px-6 py-4 whitespace-nowrap " >
                                 <b>Total &nbsp; </b>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap flex justify-end">
+                            <td class="px-6 py-4 whitespace-nowrap  flex justify-end ">
                                 <b>
                                     <span class="text-gray-500 sm:text-sm">$ </span>
                                      {{$homework->price}}
@@ -48,7 +48,7 @@
                         </tbody>
                     </table>
                     <div class="flex justify-end mt-4">
-                        <x-button class="ml-3 bg-blue-600 justify-end">Check Out </x-button>
+                        <x-button class="ml-3 bg-blue-600 justify-end">Check Out with Paypal</x-button>
                     </div>
                 </div>
             </div>
