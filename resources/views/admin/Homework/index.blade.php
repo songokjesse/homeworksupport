@@ -74,10 +74,11 @@
                                 </div>
                             </div>
                         </div>
-                        <br/>
-                        {{ $homework->links() }}
+
                     </div>
                 </div>
+                <br/>
+                {{ $homework->links() }}
             </div>
         </div>
     </div>
