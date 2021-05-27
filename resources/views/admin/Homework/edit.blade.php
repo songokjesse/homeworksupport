@@ -73,7 +73,7 @@
                                                             %
                                                           </span>
                                                         </div>
-                                                        <input type="text" name="custom_price" id="custom_price" value="{{$homework->custom_price}}" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00">
+                                                        <input type="text" name="custom_price" id="custom_price" value="{{$homework->custom_price}}" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0">
                                                     </div>
 
                                                     {{--                                                    <x-input id="email" class="block mt-1 w-full" type="number" min="0.00" name="price" :value="old('price')" required  />--}}
