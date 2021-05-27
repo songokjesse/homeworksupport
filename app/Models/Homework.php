@@ -15,6 +15,7 @@ class Homework extends Model
         'name',
         'description',
         'price',
+        'custom_price',
         'user_id'
     ];
 

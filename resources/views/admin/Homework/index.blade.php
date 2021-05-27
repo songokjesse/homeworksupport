@@ -32,6 +32,7 @@
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework Name</th>
 {{--                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework Description</th>--}}
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customization Percentage</th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Files</th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                                             </tr>
@@ -48,6 +49,12 @@
                                                             $
                                                           </span>
                                                         {{$work->price}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-gray-500 sm:text-sm">
+                                                            %
+                                                          </span>
+                                                        {{$work->custom_price}}
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <a href="{{route('HomeworkUpload', $work->id)}}">

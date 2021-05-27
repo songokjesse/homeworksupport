@@ -47,6 +47,7 @@ class HomeworkController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'custom_price' => 'required',
         ]);
 
         $homework = new Homework;
@@ -54,6 +55,7 @@ class HomeworkController extends Controller
         $homework->name = $request->input('name');
         $homework->description = $request->input('description');
         $homework->price = $request->input('price');
+        $homework->custom_price = $request->input('custom_price');
         $homework->save();
         $homework_id = $homework->id;
         return redirect()->route('HomeworkUpload', ['id' => $homework_id]);
@@ -96,6 +98,7 @@ class HomeworkController extends Controller
             'category_id' => 'required',
             'name' => 'required',
             'price' => 'required',
+            'custom_price' => 'required',
             'description' => 'required',
         ]);
 
@@ -104,6 +107,7 @@ class HomeworkController extends Controller
         $homework->name = $request->input('name');
         $homework->description = $request->input('description');
         $homework->price = $request->input('price');
+        $homework->custom_price = $request->input('custom_price');
         $homework->save();
 
         return redirect()->route('homework.index');
