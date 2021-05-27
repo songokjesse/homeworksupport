@@ -67,11 +67,11 @@
                                                     <x-label for="email" :value="__('Customization Percentage')" class="sm:font-bold"/>
                                                     <div class="mt-1 relative rounded-md shadow-sm">
                                                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                            <input type="text" name="custom_price" id="custom_price" :value="old('custom_price')" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00">
-                                                            <span class="text-gray-500 sm:text-sm">
+                                                          <span class="text-gray-500 sm:text-sm">
                                                             %
                                                           </span>
                                                         </div>
+                                                        <input type="text" name="custom_price" id="custom_price" :value="old('custom_price')" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00">
                                                     </div>
 
                                                     {{--                                                    <x-input id="email" class="block mt-1 w-full" type="number" min="0.00" name="price" :value="old('price')" required  />--}}
