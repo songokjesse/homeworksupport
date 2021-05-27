@@ -40,7 +40,7 @@
                                             <tbody class="bg-white divide-y divide-gray-200">
                                            @foreach($homework as $work)
                                                 <tr>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{{$work->id}}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">{{$loop->iteration}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{$work->category->categoryName}}</td>
                                                     <td class="px-6 py-4 whitespace-nowrap">{{Str::limit($work->name,10)}}</td>
 {{--                                                    <td class="px-6 py-4 whitespace-nowrap">{!! html_entity_decode( Str::limit($work->description, 30)) !!}</td>--}}
