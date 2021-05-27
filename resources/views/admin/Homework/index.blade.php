@@ -51,10 +51,10 @@
                                                         {{$work->price}}
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{$work->custom_price}}
                                                         <span class="text-gray-500 sm:text-sm">
                                                             %
                                                           </span>
-                                                        {{$work->custom_price}}
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <a href="{{route('HomeworkUpload', $work->id)}}">
