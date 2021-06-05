@@ -82,7 +82,7 @@
                       let amount =  document.getElementById('amount').value;
 
                       let appUrl = '{!! env('APP_URL')  !!}';
-                    return fetch( appUrl+'/payment', {
+                    return fetch( appUrl+'payment', {
                         method: 'post',
                         headers: {
                             'content-type': 'application/json',
@@ -101,7 +101,7 @@
                 onApprove: function(data) {
                     let appUrl = '{!! env('APP_URL')  !!}';
                     let  homework_id = document.getElementById('homework_id').value;
-                    return fetch(appUrl+'/payment/success', {
+                    return fetch(appUrl+'payment/success', {
                         method: 'post',
                         headers: {
                             'content-type': 'application/json',
