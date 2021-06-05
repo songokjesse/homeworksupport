@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
@@ -89,4 +90,9 @@ Route::middleware(['auth'])->group(function () {
 
     //Answers
     Route::get('/answers/{id}', [AnswerController::class, 'show'])->name('ShowAnswer');
+
+    //Payments
+    Route::post('payment', [PaymentController::class, 'payment'])->name('payment');
+    Route::get('cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
+    Route::post('payment/success', [PaymentController::class, 'success'])->name('payment.success');
 });

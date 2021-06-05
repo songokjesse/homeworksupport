@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateOrdersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->string('order_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('status');
+            $table->bigInteger('amount');
+            $table->boolean('customization')->default(0);
+            $table->bigInteger('homework_id')->unsigned();
+            $table->foreign('homework_id')->references('id')->on('homework');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('orders');
+    }
+}
