@@ -86,6 +86,7 @@
                         method: 'post',
                         headers: {
                             'content-type': 'application/json',
+                            'Access-Control-Allow-Origin': 'https://www.homework-support.com/payment',
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                         },
                         body: JSON.stringify({
@@ -105,6 +106,7 @@
                         method: 'post',
                         headers: {
                             'content-type': 'application/json',
+                            'Access-Control-Allow-Origin': 'https://www.homework-support.com/payment',
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                         },
                         body: JSON.stringify({
