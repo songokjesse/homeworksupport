@@ -100,6 +100,7 @@
                 },
                 onApprove: function(data) {
                     let appUrl = '{!! env('APP_URL')  !!}';
+                    let  homework_id = document.getElementById('homework_id').value;
                     return fetch(appUrl+'/payment/success', {
                         method: 'post',
                         headers: {
@@ -112,11 +113,12 @@
                     }).then(function (res) {
                         return res.json();
                     }).then(function (details) {
-                        alert('Transaction funds captured from ' + details.result);
-                        {{--window.location.href = '{!! route('') !!}';--}}
+                        window.location.href = appUrl +'/downloadAnswer/'+ homework_id;
                     }).catch(function (error) {
                         // redirect to failed page if internal error occurs
-                        console.log(error)
+                        // console.log(error)
+                        window.location.href = '{!! route('payment.cancel') !!}';
+
                     });
                 }
             }).render('#paypal-button-container');

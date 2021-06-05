@@ -26,8 +26,8 @@ class PaymentController extends Controller
         $data = [];
         $data['purchase_units'] = [
             [
-                'name' => 'ItSolutionStuff.com',
-                'desc'  => 'Description for ItSolutionStuff.com',
+                'name' => 'homework-support.com',
+                'desc'  => 'Being The Procurement of Homework Answer',
                 'amount' => [
                     'currency_code' => 'USD',
                     'value' => $request->amount
@@ -48,7 +48,6 @@ class PaymentController extends Controller
         $content = $response->getOriginalContent();
 
         if($content){
-
             $order = new Order;
             $order->order_id = $content->result->id;
             $order->user_id = Auth::id();
@@ -61,16 +60,24 @@ class PaymentController extends Controller
         return $response;
     }
 
-    public function cancel()
-    {
-        dd('Sorry you payment is canceled');
-    }
-
     public function success(Request $request)
     {
         $paypal = new PayPalHttpClient(self::environment());
         $orderID = $request->input('orderId');
         $request = new OrdersCaptureRequest($orderID);
         return response()->json($paypal->execute($request));
+    }
+
+    public function downloadAnswer($id)
+    {
+        if(!$id){
+            return redirect()->back();
+        }
+
+        return view('client.downloadAnswer');
+    }
+    public function cancel()
+    {
+        return view('client.paymentCancelled');
     }
 }
