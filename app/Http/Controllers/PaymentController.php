@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class PaymentController extends Controller
 {
@@ -47,7 +50,7 @@ class PaymentController extends Controller
         $response = response()->json($paypal->execute($OrderRequest));
         $content = $response->getOriginalContent();
 
-        if($content){
+        if($content->result->status === 'CREATED'){
             $order = new Order;
             $order->order_id = $content->result->id;
             $order->user_id = Auth::id();
@@ -65,16 +68,46 @@ class PaymentController extends Controller
         $paypal = new PayPalHttpClient(self::environment());
         $orderID = $request->input('orderId');
         $request = new OrdersCaptureRequest($orderID);
-        return response()->json($paypal->execute($request));
+        $response = response()->json($paypal->execute($request));
+
+        $content = $response->getOriginalContent();
+        if($content->result->status === 'COMPLETED'){
+//            Save the payment details to payment table
+            $payment = new Payment;
+            $payment->order_id = $orderID;
+            $payment->status = 'PAYMENT COMPLETED';
+            $payment->payer_email = $content->result->payer->email_address;
+            $payment->payer_order_id = $content->result->id;
+            $payment->user_id = Auth::id();
+            $payment->save();
+
+//            Update Order status to payment completed
+                DB::table('orders')
+                ->where('order_id', $orderID)
+                ->update(['status' => 'PAYMENT COMPLETED']);
+        }
+        return $response;
     }
 
-    public function downloadAnswer($id)
+    public function downloadAnswer($orderID)
     {
-        if(!$id){
-            return redirect()->back();
+        $order_id = strip_tags($orderID);
+        $user_id = Auth::id();
+
+        $payment = Payment::where('order_id', $order_id)->where('user_id', $user_id)->get();
+        if($payment[0]->status === 'PAYMENT COMPLETED'){
+//            get homework_id
+            $homework = Order::where('order_id', $order_id)->get();
+//                DB::table('orders')->select('homework_id','customization')->where('order_id', $order_id)->get();
+            //get home files
+            $homework_files = DB::table('homework_files')
+                ->where('homework_id','=',$homework[0]->homework_id)
+                ->where('Answer', '=', True)
+                ->get();
+            return view('client.downloadAnswer', compact('homework_files', 'homework'));
         }
 
-        return view('client.downloadAnswer');
+     return view('client.paymentCancelled');
     }
     public function cancel()
     {
