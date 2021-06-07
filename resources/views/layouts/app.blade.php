@@ -117,7 +117,7 @@
                     }).then(function (res) {
                         return res.json();
                     }).then(function (details) {
-                        window.location.href = appUrl +'/downloadAnswer/'+ homework_id;
+                        window.location.href = appUrl +'downloadAnswer/'+ homework_id;
                     }).catch(function (error) {
                         // redirect to failed page if internal error occurs
                         // console.log(error)
