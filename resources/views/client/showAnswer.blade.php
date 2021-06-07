@@ -59,6 +59,7 @@
                     <div class="flex justify-end mt-4">
                         <input type="hidden" id="amount" value="{{$homework->price}}">
                         <input type="hidden" id="homework_id" value="{{$homework->id}}">
+                        <input type="hidden" id="custom_prize" value="0">
                         <div id="paypal-button-container"></div>
                     </div>
                     </form>
@@ -84,11 +85,13 @@
                         noCustomization.style.display = "none";
                         document.getElementById("customizationValue").innerHTML = Total.toString();
                         document.getElementById('amount').value = Total;
+                        document.getElementById('custom_prize').value = 1;
                     }
                     if(document.getElementById("customization").checked === false){
                         withCustomization.style.display = "none";
                         noCustomization.style.display = "block";
                         document.getElementById('amount').value = amount;
+                        document.getElementById('custom_prize').value = 0;
                     }
                 }
             </script>
@@ -97,6 +100,7 @@
                     createOrder: function(data, actions) {
                         let  homework_id = document.getElementById('homework_id').value;
                         let amount =  document.getElementById('amount').value;
+                        let custom_prize = document.getElementById('custom_prize').value
 
                         let appUrl = '{!! env('APP_URL')  !!}';
                         return fetch( appUrl+'payment', {
@@ -110,6 +114,7 @@
                             body: JSON.stringify({
                                 homework_id : homework_id,
                                 amount : amount,
+                                custom_prize: custom_prize,
                             })
                         }).then(function (res) {
                             return res.json();
@@ -134,11 +139,11 @@
                         }).then(function (res) {
                             return res.json();
                         }).then(function (details) {
-                            // window.location.href = appUrl +'downloadAnswer/'+ homework_id + '/order/' + data.orderID;
+                            window.location.href = appUrl +'downloadAnswer/'+ data.orderID;
                         }).catch(function (error) {
                             // redirect to failed page if internal error occurs
-                            console.log(error)
-                            {{--window.location.href = '{!! route('payment.cancel') !!}';--}}
+                            // console.log(error)
+                            window.location.href = '{!! route('payment.cancel') !!}';
 
                         });
                     }

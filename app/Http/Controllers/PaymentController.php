@@ -57,7 +57,7 @@ class PaymentController extends Controller
             $order->homework_id = $request->homework_id;
             $order->amount = $request->amount;
             $order->status = 'PENDING PAYMENT';
-            $order->customization = True;
+            $order->customization = $request->custom_prize;
             $order->save();
         }
         return $response;
