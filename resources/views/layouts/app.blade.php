@@ -12,13 +12,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <livewire:styles />
+{{--        <livewire:styles />--}}
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.tiny.cloud/1/d59129ybq6qxkt6okcmnibu71qyogrybfi27nm5v884lr0ma/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script
                 src="https://www.paypal.com/sdk/js?client-id={{env('PAYPAL_SANDBOX_CLIENT_ID')}}" async>
         </script>
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -40,7 +41,7 @@
                 {{ $slot }}
             </main>
         </div>
-        <livewire:scripts />
+{{--        <livewire:scripts />--}}
         <script>
             tinymce.init({
                 selector: 'textarea',
@@ -51,82 +52,6 @@
                 tinycomments_author: 'Author name',
             });
         </script>
-        <script>
-            document.getElementById("customization").addEventListener("click", myFunction);
-            let withCustomization = document.getElementById('withCustomization')
-            let noCustomization = document.getElementById('noCustomization')
-
-            let  customization = document.getElementById('customization').value;
-            let amount =  document.getElementById('amount').value;
-            let Total = (+amount + ((customization/100) * amount))
-
-            let customize = document.getElementById("customization").value;
-            function myFunction() {
-                if(document.getElementById("customization").checked === true){
-                    withCustomization.style.display = "block";
-                    noCustomization.style.display = "none";
-                    document.getElementById("customizationValue").innerHTML = Total.toString();
-                    document.getElementById('amount').value = Total;
-                }
-                if(document.getElementById("customization").checked === false){
-                    withCustomization.style.display = "none";
-                    noCustomization.style.display = "block";
-                    document.getElementById('amount').value = amount;
-                }
-            }
-        </script>
-        <script>
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                      let  homework_id = document.getElementById('homework_id').value;
-                      let amount =  document.getElementById('amount').value;
-
-                      let appUrl = '{!! env('APP_URL')  !!}';
-                    return fetch( appUrl+'payment', {
-                        method: 'post',
-                        headers: {
-                            'content-type': 'application/json',
-                            'Access-Control-Allow-Origin': 'https://homework-support.com/',
-                            'Vary': 'Origin',
-                            'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-                        },
-                        body: JSON.stringify({
-                            homework_id : homework_id,
-                            amount : amount,
-                        })
-                    }).then(function (res) {
-                        return res.json();
-                    }).then(function (data) {
-                        return data.result.id;
-                    });
-                },
-                onApprove: function(data) {
-                    let appUrl = '{!! env('APP_URL')  !!}';
-                    let  homework_id = document.getElementById('homework_id').value;
-                    return fetch(appUrl+'payment/success', {
-                        method: 'post',
-                        headers: {
-                            'content-type': 'application/json',
-                            'Access-Control-Allow-Origin': 'https://homework-support.com/',
-                            'Vary': 'Origin',
-                            'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-                        },
-                        body: JSON.stringify({
-                            orderId: data.orderID,
-                        })
-                    }).then(function (res) {
-                        return res.json();
-                    }).then(function (details) {
-                        window.location.href = appUrl +'downloadAnswer/'+ homework_id;
-                    }).catch(function (error) {
-                        // redirect to failed page if internal error occurs
-                        // console.log(error)
-                        window.location.href = '{!! route('payment.cancel') !!}';
-
-                    });
-                }
-            }).render('#paypal-button-container');
-            // This function displays Smart Payment Buttons on your web page.
-        </script>
+        @stack('child-scripts')
     </body>
 </html>

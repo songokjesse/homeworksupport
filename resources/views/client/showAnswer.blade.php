@@ -1,4 +1,4 @@
-<x-app-layout>
+    <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Answer') }}
@@ -66,4 +66,89 @@
             </div>
         </div>
     </div>
+
+        @push('child-scripts')
+            <script>
+                document.getElementById("customization").addEventListener("click", myFunction);
+                let withCustomization = document.getElementById('withCustomization')
+                let noCustomization = document.getElementById('noCustomization')
+
+                let  customization = document.getElementById('customization').value;
+                let amount =  document.getElementById('amount').value;
+                let Total = (+amount + ((customization/100) * amount))
+
+                let customize = document.getElementById("customization").value;
+                function myFunction() {
+                    if(document.getElementById("customization").checked === true){
+                        withCustomization.style.display = "block";
+                        noCustomization.style.display = "none";
+                        document.getElementById("customizationValue").innerHTML = Total.toString();
+                        document.getElementById('amount').value = Total;
+                    }
+                    if(document.getElementById("customization").checked === false){
+                        withCustomization.style.display = "none";
+                        noCustomization.style.display = "block";
+                        document.getElementById('amount').value = amount;
+                    }
+                }
+            </script>
+            <script>
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        let  homework_id = document.getElementById('homework_id').value;
+                        let amount =  document.getElementById('amount').value;
+
+                        let appUrl = '{!! env('APP_URL')  !!}';
+                        return fetch( appUrl+'payment', {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json',
+                                'Access-Control-Allow-Origin': 'https://homework-support.com/',
+                                'Vary': 'Origin',
+                                'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+                            },
+                            body: JSON.stringify({
+                                homework_id : homework_id,
+                                amount : amount,
+                            })
+                        }).then(function (res) {
+                            return res.json();
+                        }).then(function (data) {
+                            return data.result.id;
+                        });
+                    },
+                    onApprove: function(data) {
+                        let appUrl = '{!! env('APP_URL')  !!}';
+                        let  homework_id = document.getElementById('homework_id').value;
+                        return fetch(appUrl+'payment/success', {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json',
+                                'Access-Control-Allow-Origin': 'https://homework-support.com/',
+                                'Vary': 'Origin',
+                                'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+                            },
+                            body: JSON.stringify({
+                                orderId: data.orderID,
+                            })
+                        }).then(function (res) {
+                            return res.json();
+                        }).then(function (details) {
+                            window.location.href = appUrl +'downloadAnswer/'+ homework_id;
+                        }).catch(function (error) {
+                            // redirect to failed page if internal error occurs
+                            // console.log(error)
+                            window.location.href = '{!! route('payment.cancel') !!}';
+
+                        });
+                    }
+                }).render('#paypal-button-container');
+                // This function displays Smart Payment Buttons on your web page.
+            </script>
+        @endpush
+
 </x-app-layout>
+
+
+
+
