@@ -94,6 +94,6 @@ Route::middleware(['auth'])->group(function () {
     //Payments
     Route::post('payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
-    Route::get('/downloadAnswer/{id}', [PaymentController::class, 'downloadAnswer'])->name('download.answer');
+    Route::get('downloadAnswer/{id}', [PaymentController::class, 'downloadAnswer'])->name('download.answer');
     Route::post('payment/success', [PaymentController::class, 'success'])->name('payment.success');
 });
