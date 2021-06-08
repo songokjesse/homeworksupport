@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PaymentController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeworkController;
@@ -51,7 +52,10 @@ Route::get('/show/{id}', function ($id) {
 })->name('show');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user_id = Auth::id();
+    $orders = \App\Models\Order::where('user_id', $user_id)->get();
+    $payments = \App\Models\Payment::where('user_id', $user_id)->get();
+    return view('dashboard', compact('orders', 'payments'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
