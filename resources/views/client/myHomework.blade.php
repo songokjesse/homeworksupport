@@ -27,7 +27,7 @@
 {{--                                </td>--}}
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{route('my_answers', $work->id)}}">
-                                    {!! html_entity_decode( Str::limit($work->description,500)) !!}
+                                    {!! html_entity_decode( Str::limit($work->description,300)) !!}
                                     </a>
                                 </td>
                             </tr>
