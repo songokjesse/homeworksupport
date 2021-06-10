@@ -48,8 +48,13 @@ Route::post('/contact', [ContactController::class, 'store'])->name('save_contact
 
 
 Route::get('/show/{id}', function ($id) {
+//    inefficient way TODO make it better(Refactor)
     $homework = \App\Models\Homework::find($id);
-    return view('/client.showHomework', compact('homework'));
+    $files = \Illuminate\Support\Facades\DB::table('homework_files')
+        ->where('homework_id', '=',$id)
+        ->where('Answer', '=', False)
+        ->get();
+    return view('/client.showHomework', compact('homework','files'));
 })->name('show');
 
 Route::get('/dashboard', function () {

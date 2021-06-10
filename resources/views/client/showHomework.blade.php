@@ -54,11 +54,11 @@
                                         <table>
                                             <tr>
                                                 <td class="flex  justify-end">
-{{--                                                    @foreach($homework->homework_files as $file)--}}
-{{--                                                    <a href="{{route('file_download', $file->id)}}">--}}
-{{--                                                        <x-button class="ml-3  justify-end bg-blue-300">{{$file->OriginalName}}</x-button>--}}
-{{--                                                    </a>--}}
-{{--                                                    @endforeach--}}
+                                                    @foreach($files as $file)
+                                                    <a href="{{route('file_download', $file->id)}}">
+                                                        <x-button class="ml-3  justify-end bg-blue-300">{{$file->OriginalName}}</x-button>
+                                                    </a>
+                                                    @endforeach
                                                    <a href="{{route('ShowAnswer', $homework->id)}}">
                                                        <x-button class="ml-3  justify-end">Download Answers </x-button>
                                                    </a>
