@@ -21,6 +21,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('my_homework')" :active="request()->routeIs('my_homework')">
+                        {{ __('Homework') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('my_billing')" :active="request()->routeIs('my_billing')">
+                        {{ __('Billing') }}
+                    </x-nav-link>
+                </div>
                 @hasrole('Admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AnswerUploadController;
 use App\Http\Controllers\Answer\AnswerController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MyPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,4 +101,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
     Route::get('downloadAnswer/{id}', [PaymentController::class, 'downloadAnswer'])->name('download.answer');
     Route::post('payment/success', [PaymentController::class, 'success'])->name('payment.success');
+
+    Route::get('/my_billing')->name('my_billing');
+    Route::get('orders')->name('orders');
+    Route::get('/my_homework',  [MyPaymentController::class, 'index'])->name('my_homework');
+    Route::get('/my_answers/{id}',  [MyPaymentController::class, 'show'])->name('my_answers');
 });
