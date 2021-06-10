@@ -7,10 +7,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+{{--            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
                 <!-- Session Status -->
                 <x-auth-session-status class="mb-4" :status="session('status')" />
-                <div class="p-6 bg-white border-b border-gray-200">
+{{--                <div class="p-6 bg-white border-b border-gray-200">--}}
                     <div>
                         <div>
                             <a href="/admin/homework/create" >
@@ -23,7 +23,7 @@
                         <div class="flex flex-col">
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+{{--                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">--}}
                                         <table class="table-auto min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
                                             <tr>
@@ -83,10 +83,10 @@
                         </div>
                         {{ $homework->links() }}
 
-                    </div>
-                </div>
+{{--                    </div>--}}
+{{--                </div>--}}
                 <br/>
-            </div>
+{{--            </div>--}}
         </div>
     </div>
 </x-app-layout>

@@ -98,7 +98,6 @@ class PaymentController extends Controller
         if($payment[0]->status === 'PAYMENT COMPLETED'){
 //            get homework_id
             $homework = Order::where('order_id', $order_id)->get();
-//                DB::table('orders')->select('homework_id','customization')->where('order_id', $order_id)->get();
             //get home files
             $homework_files = DB::table('homework_files')
                 ->where('homework_id','=',$homework[0]->homework_id)
