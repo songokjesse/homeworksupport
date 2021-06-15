@@ -19,7 +19,7 @@ class CreateHomeworkFilesTable extends Migration
             $table->string('OriginalName');
             $table->string('fileExtension');
             $table->integer('fileSize');
-            $table->boolean('Answer')->default('false');
+            $table->boolean('Answer')->default(0);
             $table->bigInteger('homework_id')->unsigned();
             $table->foreign('homework_id')->references('id')->on('homework');
             $table->timestamps();
