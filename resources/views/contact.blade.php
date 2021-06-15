@@ -85,7 +85,7 @@
 <script>
     tinymce.init({
         selector: 'textarea',
-        plugins: ' linkchecker autolink lists media pageembed table ',
+        plugins: ' autolink lists media table ',
         toolbar: 'addcomment showcomments  checklist code   table',
         toolbar_mode: 'floating',
         tinycomments_mode: 'embedded',
