@@ -15,7 +15,9 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.tiny.cloud/1/d59129ybq6qxkt6okcmnibu71qyogrybfi27nm5v884lr0ma/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+        <script
+                src="https://www.paypal.com/sdk/js?client-id={{env('PAYPAL_SANDBOX_CLIENT_ID')}}" async>
+        </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -37,11 +39,7 @@
                 {{ $slot }}
             </main>
         </div>
-
 {{--        <livewire:scripts />--}}
-        <script
-            src="https://www.paypal.com/sdk/js?client-id={{env('PAYPAL_SANDBOX_CLIENT_ID')}}" async>
-        </script>
         <script>
             tinymce.init({
                 selector: 'textarea',
