@@ -108,7 +108,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('payment/success', [PaymentController::class, 'success'])->name('payment.success');
 
     Route::get('/my_billing' ,  [MyPaymentController::class, 'myOrder'])->name('my_billing');
-    Route::get('orders')->name('orders');
+//    Route::get('orders')->name('orders');
     Route::get('/my_homework',  [MyPaymentController::class, 'index'])->name('my_homework');
     Route::get('/my_answers/{id}',  [MyPaymentController::class, 'show'])->name('my_answers');
 });
