@@ -7,14 +7,24 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+{{--            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
                 <br/>
                 <h1 class="font-medium text-sm text-green-600 text-center"><b>PAYMENT SUCCESSFUL</b></h1>
                 <div class="text-center">
-                    <i>Click Button to Download Answer</i>
+                    <b>Disclaimer</b>
+                    <p>
+                        Do not upload a purchased solution onto your school site. Use the files you downloaded from the schools site to do the task and the answer file as a guide to avoid plagiarism. Homework Support is <b>NOT LIABLE</b>  if you do so.
+                    </p>
+                    <p>
+                        <b>NB. </b><i>For MyITlab tasks even copy and paste will flag your work as plagiarized</i>
+                    </p>
                 </div>
+            <hr/>
+            <br/>
                                         <div class="text-center">
-                                            @foreach($homework_files as $file)
+                                            <p><i>Click Button to Download Answer</i></p>
+
+                                        @foreach($homework_files as $file)
                                                 <a href="{{route('file_download', $file->id)}}">
                                                     <x-button class="ml-3 bg-green-300">
                                                         {{$file->OriginalName}}
@@ -23,14 +33,31 @@
                                             @endforeach
                                         </div>
                 <br/>
-                <hr/>
-                <div class="flex flex-col md:flex-row sm:justify-center items-center   ">
+
+                <div >
                             @foreach($homework as $item)
 
                                 @if($item->customization === 1)
-                                    <form class="">
+                            <hr/>
+                                    <form class="" method="post" action="">
+                                        @csrf
+                                        <div class="mt-6">
+                                            <x-label for="email" :value="__('How do you want your answer to be Customized?')" class="sm:font-bold"/>
+
+                                            <textarea name="description" >  </textarea>
+                                        </div>
+
                                         <div class="mt-4">
-                                            <textarea name="description" class="w-full border bg-white rounded px-3 py-2 ">  </textarea>
+                                            <x-label for="email" :value="__('If you have any files for Instructions you can upload it here')" class="sm:font-bold"/>
+
+                                            <x-input id="email" class="block mt-1 w-full" type="file" name="file" :value="old('name')"  />
+                                        </div>
+                                        <br/>
+                                        <hr/>
+                                        <div class="flex items-center justify-end mt-4">
+                                            <x-button class="ml-3">
+                                                {{ __('Send Message') }}
+                                            </x-button>
                                         </div>
 
                                     </form>
@@ -41,6 +68,6 @@
 
                 <br />
             </div>
-        </div>
+{{--        </div>--}}
     </div>
 </x-app-layout>
