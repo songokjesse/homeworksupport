@@ -39,18 +39,24 @@
 
                                 @if($item->customization === 1)
                             <hr/>
-                                    <form class="" method="post" action="">
+                            <!-- Session Status -->
+                            <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                            <!-- Validation Errors -->
+                            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                    <form class="" method="post" action="{{route('customization_message')}}" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="orderId" value="{{$item->order_id}}">
                                         <div class="mt-6">
                                             <x-label for="email" :value="__('How do you want your answer to be Customized?')" class="sm:font-bold"/>
 
-                                            <textarea name="description" >  </textarea>
+                                            <textarea name="body" >  </textarea>
                                         </div>
 
                                         <div class="mt-4">
-                                            <x-label for="email" :value="__('If you have any files for Instructions you can upload it here')" class="sm:font-bold"/>
+                                            <x-label for="email" :value="__('Upload Instruction Files if any')" class="sm:font-bold"/>
 
-                                            <x-input id="email" class="block mt-1 w-full" type="file" name="file" :value="old('name')"  />
+                                            <x-input id="email" class="block mt-1 w-full" type="file" name="file" :value="old('file')"  />
                                         </div>
                                         <br/>
                                         <hr/>

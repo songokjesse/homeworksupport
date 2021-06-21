@@ -96,6 +96,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/homework-answers/{id}', [AnswerUploadController::class, 'index'])->name('AnswerUpload');
         Route::post('/homework-answers', [AnswerUploadController::class, 'store'])->name('saveHomeworkAnswers');
         Route::delete('/homework-answers/{id}', [AnswerUploadController::class, 'destroy'])->name('deleteHomeworkAnswers');
+
+        //Admin Messages
+        Route::get('/messages', [\App\Http\Controllers\Admin\MessageController::class, 'index'])->name('adminMessages');
+        Route::get('/message/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'show'])->name('show_adminMessage');
     });
 
     //Answers
@@ -111,4 +115,9 @@ Route::middleware(['auth'])->group(function () {
 //    Route::get('orders')->name('orders');
     Route::get('/my_homework',  [MyPaymentController::class, 'index'])->name('my_homework');
     Route::get('/my_answers/{id}',  [MyPaymentController::class, 'show'])->name('my_answers');
+
+//    Route::get('/')->name('customization_message');
+    Route::get('/post', [\App\Http\Controllers\PostController::class, 'index'])->name('messages');
+    Route::get('/post/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('show_message');
+    Route::post('/post', [\App\Http\Controllers\PostController::class, 'store'])->name('customization_message');
 });

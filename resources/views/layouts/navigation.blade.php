@@ -21,6 +21,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @hasrole('Member')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('my_homework')" :active="request()->routeIs('my_homework')">
                         {{ __('MyHomework') }}
@@ -31,6 +32,12 @@
                         {{ __('Billing') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('messages')" :active="request()->routeIs('messages')">
+                        {{ __('MyMessages') }}
+                    </x-nav-link>
+                </div>
+                @endhasrole
                 @hasrole('Admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
@@ -45,6 +52,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users')">
                         {{ __('Users') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('adminMessages')" :active="request()->routeIs('adminMessages')">
+                        {{ __('Messages') }}
                     </x-nav-link>
                 </div>
                 @endhasrole
