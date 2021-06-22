@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Scripts -->
     <script
-        src="https://www.paypal.com/sdk/js?client-id={{env('PAYPAL_SANDBOX_CLIENT_ID')}}" async>
+        src="https://www.paypal.com/sdk/js?client-id={{env('PAYPAL_SANDBOX_CLIENT_ID')}}" async data-sdk-integration-source="button-factory" data-namespace="paypal_sdk">
     </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
@@ -133,7 +133,7 @@
     }
 </script>
 <script>
-    paypal.Buttons({
+    paypal_sdk.Buttons({
         createOrder: function(data, actions) {
             let  homework_id = document.getElementById('homework_id').value;
             let amount =  document.getElementById('amount').value;
