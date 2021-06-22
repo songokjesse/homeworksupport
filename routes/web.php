@@ -47,15 +47,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('save_contact');
 
 
-Route::get('/show/{id}', function ($id) {
-//    inefficient way TODO make it better(Refactor)
-    $homework = \App\Models\Homework::find($id);
-    $files = \Illuminate\Support\Facades\DB::table('homework_files')
-        ->where('homework_id', '=',$id)
-        ->where('Answer', '=', False)
-        ->get();
-    return view('/client.showHomework', compact('homework','files'));
-})->name('show');
+
 
 Route::get('/dashboard', function () {
     $user_id = Auth::id();
@@ -102,6 +94,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/message/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'show'])->name('show_adminMessage');
     });
 
+    Route::get('/show/{id}', function ($id) {
+//    inefficient way TODO make it better(Refactor)
+        $homework = \App\Models\Homework::find($id);
+        $files = \Illuminate\Support\Facades\DB::table('homework_files')
+            ->where('homework_id', '=',$id)
+            ->where('Answer', '=', False)
+            ->get();
+        return view('/client.showHomework', compact('homework','files'));
+    })->name('show');
+
     //Answers
     Route::get('/answers/{id}', [AnswerController::class, 'show'])->name('ShowAnswer');
 
@@ -120,4 +122,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/post', [\App\Http\Controllers\PostController::class, 'index'])->name('messages');
     Route::get('/post/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('show_message');
     Route::post('/post', [\App\Http\Controllers\PostController::class, 'store'])->name('customization_message');
+
+    Route::post('/comment/store', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment.add');
+    Route::post('/reply/store', [\App\Http\Controllers\CommentController::class, 'replyStore'])->name('reply.add');
 });
