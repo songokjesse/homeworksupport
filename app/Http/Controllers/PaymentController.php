@@ -7,7 +7,7 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
-use PayPalCheckoutSdk\Core\SandboxEnvironment;
+use PayPalCheckoutSdk\Core\ProductionEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ class PaymentController extends Controller
 
         $clientId = getenv("PAYPAL_SANDBOX_CLIENT_ID");
         $clientSecret = getenv("PAYPAL_SANDBOX_CLIENT_SECRET");
-        return new SandboxEnvironment($clientId, $clientSecret);
+        return new ProductionEnvironment($clientId, $clientSecret);
     }
 
     public function payment(Request $request)
