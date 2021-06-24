@@ -65,14 +65,10 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{route('show', $work->id)}}">
-                                    {!! html_entity_decode( Str::limit($work->name,50)) !!}
+{{--                                    {!! html_entity_decode( Str::limit($work->name,50)) !!}--}}
+                                    {{$work->name}}
                                     </a>
                                 </td>
-{{--                                <td class="px-6 py-4 whitespace-nowrap">--}}
-{{--                                    <a href="{{route('show', $work->id)}}">--}}
-{{--                                    {!! html_entity_decode( Str::limit($work->description,100)) !!}--}}
-{{--                                    </a>--}}
-{{--                                </td>--}}
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="text-gray-500 sm:text-sm">$ </span>
                                     {{$work->price}}
