@@ -45,7 +45,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="table-auto min-w-full divide-y divide-gray-200">
+                    <table class="table-auto overflow-x-scroll min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
@@ -63,10 +63,11 @@
                                         <img src="{{$work->category->url}}" class="h-9 w-9 rounded-full"/>
                                     </a>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="overflow-x-scroll px-6 py-4 whitespace-nowrap">
                                     <a href="{{route('show', $work->id)}}">
                                         {{--                                    {!! html_entity_decode( Str::limit($work->name,50)) !!}--}}
-                                        {{$work->name}}
+                                                                          <p class="overflow-visible">  {!! html_entity_decode( $work->description) !!}</p>
+{{--                                        {{$work->description}}--}}
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
