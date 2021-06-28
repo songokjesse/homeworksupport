@@ -50,7 +50,7 @@
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Homework</th>
-{{--                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>--}}
+                            {{--                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>--}}
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                         </tr>
                         </thead>
@@ -60,13 +60,13 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{route('show', $work->id)}}">
-                                    <img src="{{$work->category->url}}" class="h-9 w-9 rounded-full"/>
+                                        <img src="{{$work->category->url}}" class="h-9 w-9 rounded-full"/>
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{route('show', $work->id)}}">
-{{--                                    {!! html_entity_decode( Str::limit($work->name,50)) !!}--}}
-                                    {{$work->name}}
+                                        {{--                                    {!! html_entity_decode( Str::limit($work->name,50)) !!}--}}
+                                        {{$work->name}}
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -78,21 +78,16 @@
                         @endforeach
                         </tbody>
                     </table>
-
+                    <hr/>
+                    <br/>
+                    {{ $homework->links() }}
 
                 </div>
             </div>
         </div>
     </main>
-    <hr/>
-    <br/>
-    {{ $homework->links() }}
+
 </div>
 
 </body>
 </html>
-
-
-
-
-
