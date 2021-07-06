@@ -67,7 +67,7 @@
                                 <td class="overflow-x-scroll px-6 py-4 whitespace-nowrap">
                                     <a href="{{route('show', $work->id)}}">
                                         {{--                                    {!! html_entity_decode( Str::limit($work->name,50)) !!}--}}
-                                                                          <p class="overflow-visible">  {!! html_entity_decode( $work->description) !!}</p>
+                                                                          <p class="overflow-visible">  {{ $work->name}}</p>
 {{--                                        {{$work->description}}--}}
                                     </a>
                                 </td>
