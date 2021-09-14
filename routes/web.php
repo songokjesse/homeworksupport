@@ -92,6 +92,9 @@ Route::middleware(['auth'])->group(function () {
         //Admin Messages
         Route::get('/messages', [\App\Http\Controllers\Admin\MessageController::class, 'index'])->name('adminMessages');
         Route::get('/message/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'show'])->name('show_adminMessage');
+
+        //Billing
+        Route::get('/billing', [\App\Http\Controllers\Admin\BillingController::class, 'index'])->name('billing');
     });
 
     Route::get('/show/{id}', function ($id) {

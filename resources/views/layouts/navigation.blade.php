@@ -59,6 +59,11 @@
                         {{ __('Messages') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('billing')" :active="request()->routeIs('billing')">
+                        {{ __('Billing') }}
+                    </x-nav-link>
+                </div>
                 @endhasrole
             </div>
 

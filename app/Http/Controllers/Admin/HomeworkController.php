@@ -69,6 +69,8 @@ class HomeworkController extends Controller
      */
     public function show($id)
     {
+        $homework = Homework::find($id);
+        return view('admin.Homework.show', compact('homework'));
         //
     }
 
