@@ -145,7 +145,7 @@
                 headers: {
                     'content-type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Vary': 'Origin',
+                    //'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
                 body: JSON.stringify({
@@ -167,7 +167,7 @@
                 headers: {
                     'content-type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Vary': 'Origin',
+                    //'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
                 body: JSON.stringify({
