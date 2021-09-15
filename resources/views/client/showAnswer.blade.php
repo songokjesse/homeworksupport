@@ -144,8 +144,8 @@
                 method: 'post',
                  headers: {
                     'content-type': 'application/json',
-                    // 'Access-Control-Allow-Origin': 'https://homework-support.com/',
-                    //'Vary': 'Origin',
+                    'Access-Control-Allow-Origin': 'https://homework-support.com/' | "*",
+                    'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
                 body: JSON.stringify({
@@ -166,8 +166,8 @@
                 method: 'post',
                   headers: {
                     'content-type': 'application/json',
-                    // 'Access-Control-Allow-Origin': 'https://homework-support.com/',
-                    //'Vary': 'Origin',
+                     'Access-Control-Allow-Origin': 'https://homework-support.com/' | "*",
+                    'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
                 body: JSON.stringify({
