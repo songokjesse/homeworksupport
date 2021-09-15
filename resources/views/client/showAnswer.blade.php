@@ -142,12 +142,12 @@
             let appUrl = '{!! env('APP_URL')  !!}';
             return fetch( appUrl+'payment', {
                 method: 'post',
-                headers: {
-                    'content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    //'Vary': 'Origin',
-                    'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-                },
+                {{--headers: {--}}
+                {{--    'content-type': 'application/json',--}}
+                {{--    // 'Access-Control-Allow-Origin': 'https://homework-support.com/',--}}
+                {{--    'Vary': 'Origin',--}}
+                {{--    'X-CSRF-TOKEN': '{!! csrf_token() !!}',--}}
+                {{--},--}}
                 body: JSON.stringify({
                     homework_id : homework_id,
                     amount : amount,
@@ -164,12 +164,12 @@
             let  homework_id = document.getElementById('homework_id').value;
             return fetch(appUrl+'payment/success', {
                 method: 'post',
-                headers: {
-                    'content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    //'Vary': 'Origin',
-                    'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-                },
+                {{--headers: {--}}
+                {{--    'content-type': 'application/json',--}}
+                {{--    // 'Access-Control-Allow-Origin': 'https://homework-support.com/',--}}
+                {{--    'Vary': 'Origin',--}}
+                {{--    'X-CSRF-TOKEN': '{!! csrf_token() !!}',--}}
+                {{--},--}}
                 body: JSON.stringify({
                     orderId: data.orderID,
                 })
