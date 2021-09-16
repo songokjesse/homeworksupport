@@ -144,7 +144,7 @@
                 method: 'post',
                  headers: {
                     'content-type': 'application/json',
-                    'Access-Control-Allow-Origin': "*",
+                    'Access-Control-Allow-Origin': "https://homework-support.com/payment",
                     //'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
@@ -166,7 +166,7 @@
                 method: 'post',
                   headers: {
                     'content-type': 'application/json',
-                     'Access-Control-Allow-Origin': "*",
+                     'Access-Control-Allow-Origin': "https://homework-support.com/payment/success",
                     //'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
