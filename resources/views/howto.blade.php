@@ -56,11 +56,6 @@
                         <li>Make purchase.</li>
                         <li>Send the original files from your school site to info@homework-support.com</li>
                     </ol>
-                    <br>
-                    <h1 class="font-semibold text-xl text-gray-800 leading-tight ">Disclaimer</h1>
-                    Do not upload a purchased solution onto your school site. Use the files you downloaded from the school’s site to do the task and the answer file from the site as a guide to avoid plagiarism. Homework-support is NOT LIABLE if you do so.
-                    <h1 class="font-semibold text-xl text-gray-800 leading-tight ">NB. </h1>For MyITlab tasks even copy and paste will flag your work as plagiarized
-
 
                 </div>
             </div>
