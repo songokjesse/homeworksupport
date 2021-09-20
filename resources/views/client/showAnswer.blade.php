@@ -142,9 +142,9 @@
             let appUrl = '{!! env('APP_URL')  !!}';
             return fetch( appUrl+'payment', {
                 method: 'post',
-                headers: {
+                 headers: {
                     'content-type': 'application/json',
-                    'Access-Control-Allow-Origin': 'https://homework-support.com/',
+                    'Access-Control-Allow-Origin': "https://homework-support.com/",
                     'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
@@ -164,9 +164,9 @@
             let  homework_id = document.getElementById('homework_id').value;
             return fetch(appUrl+'payment/success', {
                 method: 'post',
-                headers: {
+                  headers: {
                     'content-type': 'application/json',
-                    'Access-Control-Allow-Origin': 'https://homework-support.com/',
+                     'Access-Control-Allow-Origin': "https://homework-support.com/",
                     'Vary': 'Origin',
                     'X-CSRF-TOKEN': '{!! csrf_token() !!}',
                 },
