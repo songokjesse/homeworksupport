@@ -43,6 +43,10 @@ Route::get('/aboutUs', function () {
     return view('aboutUs');
 })->name('aboutUs');
 
+Route::get('/howto', function () {
+    return view('howto');
+})->name('howTo');
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('save_contact');
 

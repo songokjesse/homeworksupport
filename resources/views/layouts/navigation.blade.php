@@ -21,6 +21,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('howTo')" :active="request()->routeIs('howTo')">
+                        {{ __('How It Works') }}
+                    </x-nav-link>
+                </div>
                 @hasrole('Member')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('my_homework')" :active="request()->routeIs('my_homework')">
